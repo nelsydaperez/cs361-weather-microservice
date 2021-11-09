@@ -2,6 +2,13 @@
 A microservice that will pull weather information for a given location. A JSON file with the weather properties will be served to a client.
 # How to Use
 In order to use the microservice, you must send a GET request using the following format for the URL: flip3.engr.oregonstate.edu:44643/getWeather?city={cityname}&country={countrycode}&outdoorFlag={true/false} .
+
+The server response will be a JSON with notable weather information for 30 days forecast, including today, as well as two feasibility flags, one for the trip and one for the activity itself. Below is a list of the data found in the JSON file:
+
+Parameter | Type | Description | Units
+--- | --- | --- | ---
+- | - | - | - | -
+
 # URL Query Options
 The query parameters already deployed are as follows:
 Option | Type | Default Value | Description | Deployment Status
