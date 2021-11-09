@@ -9,6 +9,9 @@ const express = require("express");
 const request = require('request');
 const app = express();
 
+// Database
+// var db = require('./database/db-connector')
+
 app.use(express.urlencoded({
     extended: true
 }));
@@ -18,19 +21,15 @@ app.use(express.urlencoded({
 // country = country code
 // outdoorFlag = true/false
 app.get('/getWeather', function(req, res){
-    res.send(getWeather(req.query.city, req.query.country, req.query.outdoorFlag));
+    var url = 'https://pro.openweathermap.org/data/2.5/forecast/climate?q=' + req.query.cityName + ',' + req.query.countryCode +'&appid=' + apiKey + '&units=imperial';
+    request(url, { json: true }, function (err, body){
+        if(err) { return console.log(err); }
+	    var jsonResponse = generateResponse(body, req.query.outdoorFlag);
+	    // var query_update = 'UPDATE weather SET jsonText=' + response.stringify() + ' WHERE userKey=' + userKey;
+	    // var query_select = 'SELECT jsonText FROM weather WHERE userKey=' + userKey;
+	    res.send(jsonResponse);
+    });    
 });
-
-function getWeather(cityName, countryCode, outdoorFlag){
-	var payload = { cityName:cityName, countryCode:countryCode };
-	var jsonResponse = {};
-	var url = 'https://pro.openweathermap.org/data/2.5/forecast/climate?q=' + payload.cityName + ',' + payload.countryCode +'&appid=' + apiKey + '&units=imperial';
-	var response = request(url, { json: true }, (err, res, body) => {
-		if(err) { return console.log(err); }
-		return generateResponse(body, outdoorFlag);
-	});
-	return jsonResponse;
-};
 
 function generateResponse(weatherData, outdoorFlag){
 	var res = {
@@ -132,7 +131,6 @@ function generateResponse(weatherData, outdoorFlag){
 		}
 		i++;
 	}
-	console.log(res);
 	return res;
 };
 
