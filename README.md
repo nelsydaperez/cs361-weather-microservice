@@ -12,6 +12,7 @@ outdoorFlag | Required | - | A flag that states whether a recreational activity 
 
 Queries that are in development or under consideration are listed below:
 Option | Type | Default Value | Description | Deployment Status
+--- | --- | --- | --- | ---
 startDate | - | - | Provide the start date of the trip. | In development
 duration | - | - | Provide the duration of the trip. | In development
 userKey | - | - | May provide API key for each user. | In development
