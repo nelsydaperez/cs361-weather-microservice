@@ -2,10 +2,10 @@
   "name": "weather_rest",
   "version": "1.0.0",
   "description": "",
-  "main": "weather_controller.mjs",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon weather_controller.mjs"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
