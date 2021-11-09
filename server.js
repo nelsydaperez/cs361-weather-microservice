@@ -21,8 +21,8 @@ app.use(express.urlencoded({
 // country = country code
 // outdoorFlag = true/false
 app.get('/getWeather', function(req, res){
-    var url = 'https://pro.openweathermap.org/data/2.5/forecast/climate?q=' + req.query.cityName + ',' + req.query.countryCode +'&appid=' + apiKey + '&units=imperial';
-    request(url, { json: true }, function (err, body){
+    var url = 'https://pro.openweathermap.org/data/2.5/forecast/climate?q=' + req.query.city + ',' + req.query.country +'&appid=' + apiKey + '&units=imperial';
+    request(url, { json: true }, function (err, response, body){
         if(err) { return console.log(err); }
 	    var jsonResponse = generateResponse(body, req.query.outdoorFlag);
 	    // var query_update = 'UPDATE weather SET jsonText=' + response.stringify() + ' WHERE userKey=' + userKey;
