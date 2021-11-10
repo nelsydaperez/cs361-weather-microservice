@@ -7,7 +7,7 @@ The server response will be a JSON with notable weather information for 30 days 
 
 Parameter | Type | Description | Units
 --- | --- | --- | ---
-- | - | - | - | -
+... | - | - | - | -
 
 # URL Query Options
 The query parameters already deployed are as follows:
