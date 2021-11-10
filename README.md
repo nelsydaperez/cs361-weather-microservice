@@ -7,7 +7,21 @@ The server response will be a JSON with notable weather information for 30 days 
 
 Parameter | Type | Description | Units
 --- | --- | --- | ---
-... | - | - | - | -
+cityName | String | The name of the city whose weather information is displayed. | -
+countryCode | String | Name of the country the city resides in. Country naming convention follows the OpenWeatherMap country code convention (ISO 3166). | -
+days | Object | Object containing weather information for all 30 days. Days span from 1 to 30. | -
+days.temp | Object | Object containing various temperatures for a particular day. | -
+days.temp.day | Decimal | Day temperature. | °F
+days.temp.min | Decimal | Minimum temperature. for the day | °F
+days.temp.max | Decimal | Maximum temperature. for the day | °F
+days.temp.night | Decimal | Night temperature. | °F
+days.temp.eve | Decimal | Evening temperature. | °F
+days.temp.morn | Decimal | Morning temperature. | °F
+days.weather | String | Weather condition. Based on OpenWeatherMap weather condition parameters. | -
+days.description | String | More specific description of weather condition. Based on OpenWeatherMap weather condition parameters. | -
+days.tripFeasibility | Boolean | Flag that states whether a flight trip is feasible under the given weather conditions. (true/false) | -
+days.activityFeasible | Boolean | Flag that states whether a recreational activity (can either be outdoor or indoor) is feasible under the given weather conditions. (true/false) | -
+
 
 # URL Query Options
 The query parameters already deployed are as follows:
