@@ -1,5 +1,5 @@
 # Weather Service API
-A microservice that will pull weather information for a given location. A JSON file with the weather properties will be served to a client.
+A microservice that will pull weather information for a given location. A JSON file with the weather properties will be served to a client. Hosted on the Oregon State University flip servers.
 # How to Use
 In order to use the microservice, you must send a GET request using the following format for the URL: flip3.engr.oregonstate.edu:44643/getWeather?city={cityname}&country={countrycode}&outdoorFlag={true/false} .
 
