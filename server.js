@@ -19,14 +19,23 @@ app.use(express.urlencoded({
 // Get the weather based on location and activity
 // city = city name
 // country = country code
+// duration = duration of trip in days
 // outdoorFlag = true/false
 app.get('/getWeather', function(req, res){
-    var url = 'https://pro.openweathermap.org/data/2.5/forecast/climate?q=' + req.query.city + ',' + req.query.country +'&appid=' + apiKey + '&units=imperial';
+	var cnt = '';
+	if (req.query.duration != null) {
+		cnt = '&cnt=' + req.query.duration;
+	}
+
+    var url = 'https://pro.openweathermap.org/data/2.5/forecast/climate?q=' 
+		+ req.query.city + ',' + req.query.country 
+		+ cnt 
+		+ '&appid=' + apiKey 
+		+ '&units=imperial';
+
     request(url, { json: true }, function (err, response, body){
         if(err) { return console.log(err); }
 	    var jsonResponse = generateResponse(body, req.query.outdoorFlag);
-	    // var query_update = 'UPDATE weather SET jsonText=' + response.stringify() + ' WHERE userKey=' + userKey;
-	    // var query_select = 'SELECT jsonText FROM weather WHERE userKey=' + userKey;
 	    res.send(jsonResponse);
     });    
 });
