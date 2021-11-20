@@ -9,7 +9,7 @@ Parameter | Type | Description | Units
 --- | --- | --- | ---
 cityName | String | The name of the city whose weather information is displayed. | -
 countryCode | String | Name of the country the city resides in. Country naming convention follows the OpenWeatherMap country code convention (ISO 3166). | -
-days | Object | Object containing weather information for all 30 days. Days span from 1 to 30. | -
+days | Object | Object containing weather information for all days specified for a trip. Number of days can be between 1 and 30. | -
 days.temp | Object | Object containing various temperatures for a particular day. | -
 days.temp.day | Decimal | Day temperature. | °F
 days.temp.min | Decimal | Minimum temperature. for the day | °F
