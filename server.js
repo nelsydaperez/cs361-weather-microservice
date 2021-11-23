@@ -2,15 +2,12 @@
 
 // Constant values
 const PORT = 44643;
-const apiKey = '9bda8824cd664615e2a39e8dceb48926';    // To be modified with your own API key
+const apiKey = '9bda8824cd664615e2a39e8dceb48926';
 
 // Required packages
 const express = require("express");
 const request = require('request');
 const app = express();
-
-// Database
-// var db = require('./database/db-connector')
 
 app.use(express.urlencoded({
     extended: true
@@ -56,51 +53,43 @@ function generateResponse(weatherData, outdoorFlag){
 			activityFeasible: true
 		};
 
-		// Weather check for feasiblity of trip (Extreme weather)
-
-		// Thunderstorm
+		// Weather check for feasiblity of trip (extreme weather)
+		// Weather condition codes: https://openweathermap.org/weather-conditions
 		if (res.days[i].weather === 'Thunderstorm'){
 			res.days[i].tripFeasibility = false;
 			res.days[i].activityFeasible = false;
 		}
 
-		// Tornado
 		if (res.weather === 'Tornado'){
 			res.days[i].tripFeasibility = false;
 			res.days[i].activityFeasible = false;
 		}
-
-		// Volcanic Ash
+		
 		if (res.weather === 'Ash'){
 			res.days[i].tripFeasibility = false;
 			res.days[i].activityFeasible = false;
 		}
 
-		// Smoke
 		if (res.weather === 'Smoke'){
 			res.days[i].tripFeasibility = false;
 			res.days[i].activityFeasible = false;
 		}
 
-		// Sudden wind speed increases
 		if (res.weather === 'Squall'){
 			res.days[i].tripFeasibility = false;
 			res.days[i].activityFeasible = false;
 		}
 
-		// Dust storm
 		if (res.weather === 'Dust'){
 			res.days[i].tripFeasibility = false;
 			res.days[i].activityFeasible = false;
 		}
 
-		// Sandstorm
 		if (res.weather === 'Sand'){
 			res.days[i].tripFeasibility = false;
 			res.days[i].activityFeasible = false;
 		}
 
-		// Snowfall
 		if (res.weather === 'Snow'){
 			res.days[i].tripFeasibility = false;
 			res.days[i].activityFeasible = false;
