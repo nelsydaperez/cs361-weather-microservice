@@ -6,10 +6,6 @@ const request = require('request');
 require('dotenv').config();
 const app = express();
 
-// Constant values
-const PORT = process.env.PORT;
-const apiKey = process.env.OPEN_WEATHER_API_KEY;
-
 app.use(express.urlencoded({
     extended: true
 }));
@@ -28,7 +24,7 @@ app.get('/getWeather', function(req, res){
     var url = 'https://pro.openweathermap.org/data/2.5/forecast/climate?q=' 
 		+ req.query.city + ',' + req.query.country 
 		+ cnt 
-		+ '&appid=' + apiKey 
+		+ '&appid=' + process.env.OPEN_WEATHER_API_KEY
 		+ '&units=imperial';
 
     request(url, { json: true }, function (err, response, body){
@@ -133,6 +129,6 @@ function generateResponse(weatherData, outdoorFlag){
 	return res;
 };
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}...`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server listening on port ${process.env.PORT}...`);
 });
