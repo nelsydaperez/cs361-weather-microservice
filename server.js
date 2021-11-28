@@ -1,13 +1,14 @@
 'use strict';
 
-// Constant values
-const PORT = 44643;
-const apiKey = '9bda8824cd664615e2a39e8dceb48926';
-
 // Required packages
 const express = require("express");
 const request = require('request');
+require('dotenv').config();
 const app = express();
+
+// Constant values
+const PORT = process.env.PORT;
+const apiKey = process.env.OPEN_WEATHER_API_KEY;
 
 app.use(express.urlencoded({
     extended: true
